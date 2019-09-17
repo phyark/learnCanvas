@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas</title>
+	<style type="text/css">
+		#canvas{
+			border:1px solid #262626;
+			display: block;
+			margin:50px auto;
+			width: 800px;
+			height: 600px;
+		}
+	</style>
+</head>
+<body>
+<h1>hello,canvas</h1>
+<div id="canvas-warp">
+	<canvas id="canvas">
+		你的浏览器不支持Canvas? 快换一个吧！！
+	</canvas>
+</div>
+<script type="text/javascript">
+	window.onload = function () {
+		// 获取画布
+		const canvas = document.querySelector('#canvas')
+		
+		// 获取画笔
+		const context = canvas.getContext('2d')
+
+		// 设置画笔宽高
+		canvas.width = 1920
+		canvas.height = 1080
+		drawRect(context, 0, 0, 1920, 1080, 'yellow', 1, '#262626')
+		drawRect(context, 50, 50, 1870, 1000, 'white', 1, '#262626')
+		// 重置当前路径
+		context.beginPath()
+		// 画笔起点
+		context.moveTo(100, 100)
+		// 画笔终点
+		context.lineTo(150, 100)
+		context.lineTo(600, 400)
+		context.lineTo(100, 400)
+		context.lineTo(100, 100)
+		// 绘制线条粗细
+		context.lineWidth = 1
+		// 设置绘制样式
+		context.strokeStyle = 'blue'
+		context.fillStyle = 'gold'
+		// 闭合当前图形,避免出现缺口
+		context.closePath()
+		// 确定绘制
+		// 有fill()方法和stroke()方法
+		// fill()是填充
+		// stroke()是描边
+		context.stroke()
+		context.fill()
+
+		context.beginPath()
+		context.moveTo(1200, 100)
+		context.lineTo(1150, 100)
+		context.lineTo(650, 400)
+		context.lineTo(1200, 400)
+		context.lineTo(1200, 100)
+
+		context.lineWidth = 15
+		context.strokeStyle = '#AA394C'
+		context.closePath()
+		context.stroke()
+
+		// 矩形
+		context.beginPath()
+		context.moveTo(100, 500)
+		context.lineTo(100,520)
+		context.lineTo(120,520)
+		context.lineTo(120,500)
+		context.lineTo(200,500)
+		context.lineTo(200,520)
+		context.lineTo(220,520)
+		context.lineTo(220,500)
+		context.lineTo(240,500)
+		context.lineTo(240,480)
+		context.lineTo(100,480)
+		context.closePath()
+
+		context.lineWidth = 1
+		// 设置填充颜色
+		context.fillStyle = "green"
+		// 设置描边颜色
+		context.strokeStyle = 'orange'
+		// 填充
+		context.fill()
+		// 描边
+		context.stroke()
+
+		// 调用api
+		context.beginPath()
+		context.rect(150,160,600,400)
+		context.lineWidth = 15
+		context.strokeStyle = "grey"
+		context.fillStyle = "rgba(0,0,0,0.3)"
+		context.closePath()
+		context.stroke()
+		context.fill()
+
+
+	}
+
+	// 绘制矩形
+	function drawRect(cxt, x, y, width, height, fillColor, borderWidth, borderColor) {
+		cxt.beginPath()
+		cxt.moveTo(x, y)
+		cxt.lineTo(x + width, y)
+		cxt.lineTo(x + width, y + height)
+		cxt.lineTo(x, y + height)
+		cxt.lineTo(x, y)
+		cxt.closePath()
+
+		cxt.lineWidth = borderWidth
+		cxt.strokeStyle = borderColor
+		cxt.fillStyle = fillColor
+
+		cxt.fill()
+		cxt.stroke()
+	}
+</script>
+</body>
+</html>

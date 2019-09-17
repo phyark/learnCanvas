@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>圆形端点，斜角链接，画布左上角</title>
+	<style type="text/css">
+		canvas{
+			border: 1px solid #c8c8c8;
+			margin: 50px auto
+		}
+	</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script type="text/javascript">
+	const canvas = document.querySelector('#canvas')
+	const context = canvas.getContext('2d')
+	canvas.width = 800
+	canvas.height = 600
+
+	context.lineWidth = 50
+	context.strokeStyle = '#262626'
+
+	context.beginPath()
+	context.moveTo(100, 100)
+	context.lineTo(400, 400)
+	context.lineTo(400, 100)
+	context.lineCap = 'round'
+	context.lineJoin = 'bevel'
+	// context.closePath()
+	context.stroke()
+</script>
+</body>
+</html>

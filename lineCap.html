@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>lineCap</title>
+	<style type="text/css">
+		#canvas{
+			border: 1px solid #c8c8c8;
+			display: block;
+			margin: 50px auto;
+		}
+	</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script type="text/javascript">
+	window.onload = function () {
+		const canvas = document.querySelector('canvas')
+		const context = canvas.getContext('2d')
+		canvas.width = 800
+		canvas.height = 600
+
+		context.lineWidth = 50
+		context.strokeStyle = "#262626"
+
+		// square 方形端点
+		context.beginPath()
+		context.moveTo(100,100)
+		context.lineTo(700,100)
+		context.lineTo(720,120)
+		context.lineCap = 'square'
+		context.stroke()
+
+		// butt 平直端点
+		context.beginPath()
+		context.moveTo(100,300)
+		context.lineTo(700,300)
+		context.lineTo(720,320)
+		context.lineCap = 'butt'
+		context.stroke()
+
+		// round 圆形端点
+		context.beginPath()
+		context.moveTo(100,500)
+		context.lineTo(700,500)
+		context.lineTo(720,520)
+		context.lineCap = 'round'
+		context.stroke()
+
+
+		context.lineWidth = 3
+		context.strokeStyle = "#ff4000"
+		context.beginPath()
+		context.moveTo(100,0)
+		context.lineTo(100,600)
+		context.moveTo(700,0)
+		context.lineTo(700,600)
+		context.lineCap = 'butt'
+		context.stroke()
+	}
+</script>
+</body>
+</html>

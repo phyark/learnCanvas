@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas</title>
+	<style type="text/css">
+		#canvas{
+			border:1px solid #262626;
+			display: block;
+			margin:50px auto;
+			width: 800px;
+			height: 600px;
+		}
+	</style>
+</head>
+<body>
+<h1>hello,canvas</h1>
+<div id="canvas-warp">
+	<canvas id="canvas">
+		你的浏览器不支持Canvas? 快换一个吧！！
+	</canvas>
+</div>
+<script type="text/javascript">
+	window.onload = function () {
+		// 获取画布
+		const canvas = document.querySelector('#canvas')
+		
+		// 获取画笔
+		const context = canvas.getContext('2d')
+
+		// 设置画笔宽高
+		canvas.width = 1920
+		canvas.height = 1080
+		drawRect(context, 1, 1, 1918, 1078, "yellow", 1, "red")
+
+
+		context.beginPath()
+		for(var i = 0; i <= 20; i++) {
+			drawRect(context, 200 + 10 * i, 100 + 10 * i, 400 - 20 * i, 400 - 20 * i, "white", 0, 'white')
+			drawRect(context, 205 + 10 * i, 105 + 10 * i, 390 - 20 * i, 390 - 20 * i, "black", 0, 'black')
+		}
+		context.beginPath();
+        context.rect(395, 295, 5, 5);
+        context.fillStyle = "black";
+        context.lineWidth = 5; 
+        context.fill();
+        context.stroke();
+	}
+
+	// 绘制矩形
+	function drawRect(cxt, x, y, width, height, fillColor, borderWidth, borderColor) {
+		cxt.beginPath()
+		cxt.rect(x,y,width,height)
+		cxt.lineWidth = borderWidth
+		cxt.strokeStyle = borderColor
+		cxt.fillStyle = fillColor
+		cxt.closePath()
+		cxt.stroke()
+		cxt.fill()
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		canvas{
+			border: 1px solid #c8c8c8;
+			margin: 50px auto;
+		}
+	</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script type="text/javascript">
+	const canvas = document.querySelector('#canvas')
+	const context = canvas.getContext('2d')
+	canvas.width = 800
+	canvas.height = 600
+	context.rect(200,100,400,400)
+	
+	// 添加渐变线
+	const grd = context.createLinearGradient(150,150,600,600)
+
+	// 添加颜色断点
+	grd.addColorStop(0,"black")
+	grd.addColorStop(0.5,'white')
+	grd.addColorStop(1,'grey')
+
+	// 应用渐变
+	context.fillStyle = grd
+
+	context.fill()
+
+</script>
+</body>
+</html>
